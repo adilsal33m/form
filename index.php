@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $emailIsValid = filter_var($email, FILTER_VALIDATE_EMAIL);
-
+	
     if ($name && $email && $phone && $emailIsValid && $city) {
         $sql = "INSERT INTO ".$table." (firstname, phone, email, city)
 		VALUES ('$name', '$phone','$email','$city')";
@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Simple Form</h1>
         </div>
     </div>
+	<form action="./list.php" class="text-right">
+    <input  class="btn-info btn" type="submit" value="Go to View Data" />
+	</form>
     <?php if(!empty($emailSent)): ?>
         <div class="col-md-6 col-md-offset-3">
             <div class="alert alert-success text-center"><?php echo $config->get('messages.success'); ?></div>
@@ -72,13 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="form-email" class="col-lg-2 control-label"><?php echo $config->get('fields.email'); ?></label>
                 <div class="col-lg-10">
-                    <input type="email" class="form-control" id="form-email" name="form-email" placeholder="<?php echo $config->get('fields.email'); ?>" required>
+                    <input type="email" class="form-control" id="form-email" name="form-email" placeholder="<?php echo $config->get('fields.email'); ?>" pattern = "[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="form-phone" class="col-lg-2 control-label"><?php echo $config->get('fields.phone'); ?></label>
                 <div class="col-lg-10">
-                    <input type="tel" class="form-control" id="form-phone" name="form-phone" placeholder="<?php echo $config->get('fields.phone'); ?>">
+                    <input type="tel" class="form-control" id="form-phone" name="form-phone" placeholder="<?php echo $config->get('fields.phone'); ?>" pattern="^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$">
                 </div>
             </div>
             <div class="form-group">

@@ -17,7 +17,7 @@ return [
         'email'    => 'Email',
         'phone'    => 'Phone',
         'city'  => 'City',
-        'btn-send' => 'Send'
+        'btn-send' => 'Enter'
     ]
 ];
 ?>
