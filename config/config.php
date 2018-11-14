@@ -2,22 +2,29 @@
 
 return [
     'subject' => [
-        'prefix' => '[Contact Form]'
+        'prefix' => '[Issue Registration]'
     ],
     'emails' => [
-        'to'   => '',
-        'from' => ''
+        'to'   => ['newuser@localhost.com','testUser@localhost.com','nonexistent@localhost.com'],
+        'from' => 'Admin@localhost.com'
     ],
     'messages' => [
-        'error'   => 'There was an error saving the data.',
-        'success' => 'Your data has been saved successfully.'
+        'error'   => 'There was a problem registering your issue.',
+        'success' => 'Your issue has been registered succesfully.'
     ],
     'fields' => [
         'name'     => 'Name',
-        'email'    => 'Email',
-        'phone'    => 'Phone',
-        'city'  => 'City',
-        'btn-send' => 'Enter'
+        'designation'    => 'Designation',
+        'employee_id'    => 'Employee Code',
+        'department'  => 'Department',
+        'work' => 'Work',
+		'description' => 'Issue Description',
+		'submit' => 'Submit'
+    ],
+	'work_fields' => [
+        '1'     => 'AC',
+        '2'    => 'Electrical',
+        '3'    => 'Vehicle Maintenance'
     ]
 ];
 ?>

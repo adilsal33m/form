@@ -30,10 +30,13 @@ $result = $conn->query($query);
 
 $sql = "CREATE TABLE ".$table." (
 id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-firstname VARCHAR(30) NOT NULL,
-phone VARCHAR(30) NOT NULL UNIQUE,
-email VARCHAR(50) NOT NULL UNIQUE,
-city VARCHAR(50) NOT NULL
+name VARCHAR(30) NOT NULL,
+designation VARCHAR(30) NOT NULL,
+employee_id VARCHAR(30) NOT NULL,
+department VARCHAR(30) NOT NULL,
+work ENUM ('AC','Electrical','Vehicle Maintenance'),
+description VARCHAR(500) NOT NULL,
+time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
 if(empty($result)) {
